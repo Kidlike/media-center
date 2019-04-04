@@ -2,7 +2,6 @@ version: "3"
 services:
   transmission:
     image: linuxserver/transmission
-    container_name: transmission
     environment:
       - PUID=1000
       - PGID=1000
@@ -18,7 +17,7 @@ services:
     restart: always
     deploy:
       restart_policy:
-        condition: always
+        condition: any
         delay: 5s
         max_attempts: 5
         window: 180s
