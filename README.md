@@ -41,9 +41,11 @@ SYNCTHING_DIR_DATA1='./data/syncthing/data1'
 
 ### Run
 
+You can select which stacks to run (or all). For example to run Transmission:
+
 ```shell
-mkdir -p ./data/config ./data/downloads ./data/watch
-docker-compose up -d
+mkdir -p ./data/transmission/config ./data/transmission/downloads ./data/transmission/watch
+docker-compose -f torrents-compose.yml up -d
 ```
 
 - `-d` to persist between host restarts (will automatically start containers after restart)
