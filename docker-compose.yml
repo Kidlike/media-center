@@ -12,12 +12,12 @@ services:
     devices:
       - /dev/net/tun
     environment:
-      - USER=username
-      - "PASS=pas$word"
-      - CONNECT=United_States
-      - TECHNOLOGY=NordLynx
-      - NETWORK=192.168.1.0/24
-      - "DNS=1.1.1.1,1.0.0.1"
+      - "USER=${NORDVPN_USER}"
+      - "PASS=${NORDVPN_PASS}"
+      - "CONNECT=${NORDVPN_CONNECT_TO}"
+      - "TECHNOLOGY=${NORDVPN_TECHNOLOGY}"
+      - "NETWORK=${LOCAL_NETWORK}"
+      - "DNS=${DNS_LIST}"
     ulimits:
       memlock:
         soft: -1
@@ -37,10 +37,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TRANSMISSION_WEB_HOME=/combustion-release/
-      - USER=theponds
-      - PASS=riversong
+      - "USER=${TRANSMISSION_USER}"
+      - "PASS=${TRANSMISSION_PASS}"
       - TZ=Europe/Zurich
     volumes:
-      - ./data/config:/config
-      - ./data/downloads:/downloads
-      - ./data/watch:/watch
+      - "${TRANSMISSION_DIR_CONFIG}:/config"
+      - "${TRANSMISSION_DIR_DOWNLOADS}:/downloads"
+      - "${TRANSMISSION_DIR_WATCH}:/watch"
+
