@@ -5,12 +5,39 @@ Docker based integration for media center related [companion tools](https://www.
 
 - [x] torrent ([Transmission](https://github.com/transmission/transmission))
 - [x] vpn ([NordVPN](https://nordvpn.com/))
-  
+
+
 #### Companion Tools _(in order of TODO priority)_:
 - [ ] [Radarr](https://github.com/Radarr/Radarr)
 - [ ] [Sonarr](https://github.com/Sonarr/Sonarr)
 - [ ] [Traktarr](https://github.com/l3uddz/traktarr)
 - [ ] [Bazarr](https://github.com/morpheus65535/bazarr)
+
+
+### Configure
+
+Use a local `.env` file with all required configurations:
+```
+HOSTNAME='tardis'
+LOCAL_NETWORK='192.168.1.0/24'
+DNS_LIST='1.1.1.1,1.0.0.1'
+TIMEZONE='Europe/Zurich'
+
+NORDVPN_USER='...'
+NORDVPN_PASS='...'
+NORDVPN_CONNECT_TO='Switzerland'
+NORDVPN_TECHNOLOGY='NordLynx'
+
+TRANSMISSION_USER='...'
+TRANSMISSION_PASS='...'
+TRANSMISSION_DIR_CONFIG='./data/transmission/config'
+TRANSMISSION_DIR_DOWNLOADS='./data/transmission/downloads'
+TRANSMISSION_DIR_WATCH='./data/transmission/watch'
+
+SYNCTHING_DIR_CONFIG='./data/syncthing/config'
+SYNCTHING_DIR_DATA1='./data/syncthing/data1'
+```
+
 
 ### Run
 
@@ -21,13 +48,6 @@ docker-compose up -d
 
 - `-d` to persist between host restarts (will automatically start containers after restart)
 
-### Data dir
-TODO: This is currently only for transmission. In the future probably there will be another layer (e.g. `./data/transmission/*`) 
-```
-./data/config
-./data/downloads
-./data/watch
-```
 
 ### Docker Swarm vs Docker Compose
 

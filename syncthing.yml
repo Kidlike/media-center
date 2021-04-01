@@ -8,7 +8,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Zurich
+      - "TZ=${TIMEZONE}"
     volumes:
       - "${SYNCTHING_DIR_CONFIG}:/config"
       - "${SYNCTHING_DIR_DATA1}:/data1"
