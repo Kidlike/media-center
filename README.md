@@ -14,6 +14,10 @@ Docker based integration for media center related [companion tools](https://www.
 - [ ] [Bazarr](https://github.com/morpheus65535/bazarr)
 
 
+#### Extras:
+- [x] [Syncthing](https://syncthing.net/)
+
+
 ### Configure
 
 Use a local `.env` file with all required configurations:
