@@ -1,9 +1,7 @@
----
-version: "2.1"
+version: "3"
 services:
   piwigo:
     image: ghcr.io/linuxserver/piwigo
-    container_name: piwigo
     environment:
       - PUID=1000
       - PGID=1000
@@ -19,6 +17,7 @@ services:
     image: mariadb:10.4.18
     command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--log_bin_trust_function_creators=1' ]
     environment:
+      - MYSQL_DATABASE=piwigo
       - MYSQL_ROOT_PASSWORD=piwigo
       - MYSQL_INITDB_SKIP_TZINFO=1
     networks:
