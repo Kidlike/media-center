@@ -8,6 +8,7 @@ services:
       - "TZ=${TIMEZONE}"
     volumes:
       - ./data/piwigo/config:/config
+      - ./data/syncthing/data1/stefanos-mimix2-camera:/config/www/gallery/galleries/stefanos-mimix2
     ports:
       - 8081:80
     networks:
@@ -20,6 +21,8 @@ services:
       - MYSQL_DATABASE=piwigo
       - MYSQL_ROOT_PASSWORD=piwigo
       - MYSQL_INITDB_SKIP_TZINFO=1
+    volumes:
+      - ./data/piwigo-mariadb:/var/lib/mysql
     networks:
       - mariadb-net
 
