@@ -12,4 +12,17 @@ services:
       - ./data/piwigo/config:/config
     ports:
       - 8081:80
-    restart: unless-stopped
+    networks:
+      - mariadb-net
+
+  mariadb:
+    image: mariadb:10.4.18
+    command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--log_bin_trust_function_creators=1' ]
+    environment:
+      - MYSQL_ROOT_PASSWORD=piwigo
+      - MYSQL_INITDB_SKIP_TZINFO=1
+    networks:
+      - mariadb-net
+
+networks:
+  mariadb-net:
